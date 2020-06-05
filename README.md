@@ -2,7 +2,7 @@
 
 ---
 
-
+A plug-in for permission control. User permission is defined by himself
 
 
 
@@ -20,6 +20,43 @@ python3 -m pip install bottle-aclPlugin
 
 
 
-you must
+you must create an object and inherit  **AclPlugin** and Implement  ***get_roles***.
 
-Instantiate objects during project initialization
+~~~python
+from bottle-aclPlugin import AclPlugin
+class AclSonPlugin(AclPlugin):
+
+    def get_roles(self, arg):
+        # get user's roles in arg
+        
+        return {roles}
+~~~
+
+
+
+install plugin objects at the beginning.
+
+~~~python
+import bottle
+import AclSonPlugin
+
+app = bottle.default_app()
+
+acl = app.install(AclSonPlugin())
+~~~
+
+
+
+Then you can use the **Plugin** carry out authority control for designated api.
+
+~~~python
+import acl
+
+@app.get("/Admin")
+@acl.roles_required(roles={"admin"})
+def get_admin():
+    return "okmsg"
+~~~
+
+
+
