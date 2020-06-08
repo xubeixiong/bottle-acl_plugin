@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
-description = "Bottle plugin acl, api access control"
+description = "A plug-in for permission control. User permission is defined by himself"
 
 setup(
     name='bottle-aclPlugin',
@@ -12,7 +12,7 @@ setup(
     author="Xu_beixiong",
     author_email='17610739793@163.com',
     license='MIT',
-    url='https://github.com/bottlepy/bottle-beaker',
+    url='https://github.com/xubeixiong/bottle-acl_plugin',
     py_modules=['bottle-aclPlugin'],
     requires=['bottle (>=0.9)'],
     classifiers=[
